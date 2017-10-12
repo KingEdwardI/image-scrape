@@ -17,11 +17,11 @@ request(main_url, (err, response, body) => {
   };
   for (const i in page) {
     try {
-      download(base_url + page[i].attribs.src.replace('png', 'jpg').replace('/la/thumb', ''), page[i].attribs.src.replace('/la/thumb/', ':'), () => {
-        console.log('done');
+      download(base_url + page[i].attribs.src, page[i].attribs.src, () => {
+        console.log('done', i);
       });
     } catch (er) {
-
+      console.error(er);
     }
   }
 });
